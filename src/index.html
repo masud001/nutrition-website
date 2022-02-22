@@ -5,117 +5,124 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home || Nutrition Monitoring Website</title>
+		<!-- font-awesome icons css  -->
+		<link rel="stylesheet" href="./assets/fontawesome/css/all.css" />
+		<!-- tailwind css  -->
 		<link rel="stylesheet" href="./assets/css/output/tailwind.css" />
+		<!-- custom css  -->
 		<link rel="stylesheet" href="./assets/css/custom.css" />
 	</head>
 	<body>
 		<!--NOTE: Page header section START  -->
 		<header class="mx-auto bg-white shadow-lg">
 			<div class="container px-4">
-				<div class="flex items-center justify-between py-4">
+				<div
+					x-data="{menuOpen:false}"
+					class="flex flex-wrap lg:flex-nowrap lg:justify-between w-full items-center lg:items-center"
+				>
 					<!--NOTE: logo -->
-					<a href="">
-						<img src="https://via.placeholder.com/75" alt="logo" />
-					</a>
-					<!--NOTE: Header menu  -->
-					<div class="">
-						<ul class="flex">
-							<li>
+					<div class="mr-4">
+						<a href="">
+							<img src="https://via.placeholder.com/50" alt="logo" />
+						</a>
+					</div>
+					<!-- NOTE: mobile toggle button  -->
+					<button class="ml-auto md:hidden" @click="menuOpen = !menuOpen">
+						<i class="fa-solid fa-bars"></i>
+					</button>
+
+					<!--NOTE: Header items  -->
+					<div
+						:class="{'hidden':!menuOpen}"
+						class="w-full md:w-auto flex-col md:flex-row md:inline-flex left-auto"
+					>
+						<!-- NOTE: header menu  -->
+						<ul
+							class="flex md:flex-row flex-col space-y-3 md:space-y-0 md:space-x-3 lg:space-x-5 md:mr-3 lg:mr-4 lg:py-0 py-3"
+						>
+							<!-- menu list (home)  -->
+							<li class="">
 								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
+									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
 									href="#"
-									>items 1</a
-								>
+									>home
+								</a>
 							</li>
-							<li>
+							<!-- menu list (classroom) -->
+							<li class="">
 								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
+									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
 									href="#"
-									>items 1</a
-								>
+									>classroom
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
 							</li>
-							<li>
+							<!-- menu list (nutritions) -->
+							<li class="">
 								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
+									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
 									href="#"
-									>items 1</a
-								>
+									>nutritions
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
 							</li>
-							<li>
+							<!-- menu list (reports) -->
+							<li class="">
 								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
+									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
 									href="#"
-									>items 1</a
-								>
-							</li>
-							<li>
-								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
-									href="#"
-									>items 1</a
-								>
-							</li>
-							<li>
-								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
-									href="#"
-									>items 1</a
-								>
-							</li>
-							<li>
-								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
-									href="#"
-									>items 1</a
-								>
-							</li>
-							<li>
-								<a
-									class="text-base font-medium text-gray-500 hover:text-gray-900"
-									href="#"
-									>items 1</a
-								>
+									>reports
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
 							</li>
 						</ul>
-					</div>
-					<div class="flex items-center justify-between">
-						<!-- NOTE: header login button  -->
-						<a href="">
-							<button
-								class="btn-gradient mr-5 capitalize text-white px-4 py-2 rounded-md"
-							>
-								login
-							</button>
-						</a>
-						<!-- NOTE: language enable/disable button  -->
-						<div class="flex items-center justify-center w-full">
-							<label for="toogleA" class="flex items-center cursor-pointer">
-								<!-- toggle -->
-								<div class="relative">
-									<!-- input -->
-									<input id="toogleA" type="checkbox" class="sr-only" />
-									<!-- line -->
-									<div
-										class="w-10 h-4 bg-green-600 rounded-full shadow-inner flex justify-start items-center"
-									>
-										<span class="capitalize text-white text-[10px] ml-1"
-											>bn</span
+						<!-- NOTE: header login/toggle buttons  -->
+						<div class="flex items-center justify-start">
+							<a href="">
+								<button
+									class="btn-gradient mr-5 capitalize text-white px-5 py-1 rounded-md"
+								>
+									login
+								</button>
+							</a>
+							<!-- NOTE: language enable/disable button  -->
+							<div class="flex items-center justify-center">
+								<label for="toogleA" class="flex items-center cursor-pointer">
+									<!-- toggle -->
+									<div class="relative">
+										<!-- input -->
+										<input id="toogleA" type="checkbox" class="sr-only" />
+										<!-- line -->
+										<div
+											class="w-10 h-4 bg-green-600 rounded-full shadow-inner flex justify-start items-center"
 										>
+											<span class="capitalize text-white text-[10px] ml-1"
+												>bn</span
+											>
+										</div>
+										<!-- dot -->
+										<div
+											class="en-dot absolute flex items-center justify-center w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"
+										>
+											<span class="capitalize text-[10px]"> en</span>
+										</div>
 									</div>
-									<!-- dot -->
-									<div
-										class="en-dot absolute flex items-center justify-center w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"
-									>
-										<span class="capitalize text-[10px]"> en</span>
-									</div>
-								</div>
-							</label>
+								</label>
+							</div>
+							<!-- end toggle button  -->
 						</div>
-						<!-- end toggle button  -->
 					</div>
 				</div>
 			</div>
 		</header>
 		<!--NOTE: Page header section END  -->
+
+		<script type="module" src="./assets/js/main.js"></script>
 	</body>
 </html>

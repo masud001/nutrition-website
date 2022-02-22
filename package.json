@@ -18,5 +18,8 @@
   "homepage": "https://gitlab.com/riseup-labs/nutrition-monitoring-front-end-website#readme",
   "devDependencies": {
     "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "alpinejs": "^3.9.0"
   }
 }
