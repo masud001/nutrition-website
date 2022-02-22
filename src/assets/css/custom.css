@@ -1,0 +1,13 @@
+/* Toggle A */
+input:checked ~ .en-dot {
+	transform: translateX(100%);
+}
+
+.btn-gradient {
+	background: rgb(18, 103, 16);
+	background: linear-gradient(
+		90deg,
+		rgba(18, 103, 16, 1) 0%,
+		rgba(123, 178, 78, 0.8799894957983193) 100%
+	);
+}
