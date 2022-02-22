@@ -18,7 +18,7 @@
 			<div class="container px-4">
 				<div
 					x-data="{menuOpen:false}"
-					class="flex flex-wrap lg:flex-nowrap lg:justify-between w-full items-center lg:items-center"
+					class="flex flex-wrap lg:flex-nowrap lg:justify-between w-full items-center md:items-start lg:items-center"
 				>
 					<!--NOTE: logo -->
 					<div class="mr-4">
@@ -34,46 +34,109 @@
 					<!--NOTE: Header items  -->
 					<div
 						:class="{'hidden':!menuOpen}"
-						class="w-full md:w-auto flex-col md:flex-row md:inline-flex left-auto"
+						class="w-full md:w-auto flex-col md:flex-row md:inline-flex left-auto md:items-start lg:items-center"
 					>
 						<!-- NOTE: header menu  -->
 						<ul
 							class="flex md:flex-row flex-col space-y-3 md:space-y-0 md:space-x-3 lg:space-x-5 md:mr-3 lg:mr-4 lg:py-0 py-3"
 						>
-							<!-- menu list (home)  -->
+							<!--NOTE: menu list (home)  -->
 							<li class="">
 								<a
-									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
 									href="#"
 									>home
 								</a>
 							</li>
-							<!-- menu list (classroom) -->
-							<li class="">
+							<!--NOTE:  menu list (classroom) -->
+							<li class="relative" x-data="{dropDownOpen:false}">
 								<a
-									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+									@click="dropDownOpen = !dropDownOpen"
+									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+									:class="{'border-green-600':dropDownOpen}"
 									href="#"
 									>classroom
 									<span class="relative top-0"
 										><i class="fa-solid fa-angle-down"></i
 									></span>
 								</a>
+								<!-- NOTE: dropdown menu  -->
+								<div
+									:class="{'hidden': !dropDownOpen,'flex flex-col':dropDownOpen}"
+									class="lg:absolute left-0 bg-white shadow-md mt-2 text-white"
+								>
+									<ul class="space-y-1 md:w-36 lg:w-60">
+										<!-- dropdown items (teacher)  -->
+										<li>
+											<a
+												class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+												href="#"
+											>
+												<span>teacher</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+										</li>
+										<!-- dropdown items (classes) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+												href="#"
+											>
+												<span>classes</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+															href="#"
+															>Add student</a
+														>
+													</li>
+													<li>
+														<a
+															class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+															href="#"
+															>Add student</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<!-- dropdown items (students) -->
+										<li>
+											<a
+												class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+												href="#"
+											>
+												<span>students</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+										</li>
+									</ul>
+								</div>
 							</li>
-							<!-- menu list (nutritions) -->
+							<!--NOTE:  menu list (nutritions) -->
 							<li class="">
 								<a
-									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
 									href="#"
-									>nutritions
+									>nutritions programs
 									<span class="relative top-0"
 										><i class="fa-solid fa-angle-down"></i
 									></span>
 								</a>
 							</li>
-							<!-- menu list (reports) -->
+							<!--NOTE:  menu list (reports) -->
 							<li class="">
 								<a
-									class="text-base capitalize inline-block font-medium px-4 py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
 									href="#"
 									>reports
 									<span class="relative top-0"
@@ -83,7 +146,7 @@
 							</li>
 						</ul>
 						<!-- NOTE: header login/toggle buttons  -->
-						<div class="flex items-center justify-start">
+						<div class="flex items-center justify-start md:py-3">
 							<a href="">
 								<button
 									class="btn-gradient mr-5 capitalize text-white px-5 py-1 rounded-md"
