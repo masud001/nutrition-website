@@ -1,0 +1,22 @@
+{
+  "name": "nutrition-monitoring-front-end-website",
+  "version": "1.0.0",
+  "description": "Nutritions monitoring website for Bangladesh Government.",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./src/assets/css/input/tailwind.css -o ./src/assets/css/output/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/riseup-labs/nutrition-monitoring-front-end-website.git"
+  },
+  "author": "Masudur Rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/riseup-labs/nutrition-monitoring-front-end-website/issues"
+  },
+  "homepage": "https://gitlab.com/riseup-labs/nutrition-monitoring-front-end-website#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
