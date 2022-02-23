@@ -42,17 +42,13 @@
 						>
 							<!--NOTE: menu list (home)  -->
 							<li class="">
-								<a
-									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
-									href="#"
-									>home
-								</a>
+								<a class="menu__list" href="#">home </a>
 							</li>
 							<!--NOTE:  menu list (classroom) -->
 							<li class="relative" x-data="{dropDownOpen:false}">
 								<a
 									@click="dropDownOpen = !dropDownOpen"
-									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+									class="menu__list hover:border-b-2 hover:border-green-600"
 									:class="{'border-green-600':dropDownOpen}"
 									href="#"
 									>classroom
@@ -62,25 +58,49 @@
 								</a>
 								<!-- NOTE: dropdown menu  -->
 								<div
-									:class="{'hidden': !dropDownOpen,'flex flex-col':dropDownOpen}"
+									:class="{'hidden': !dropDownOpen,'flex flex-col z-50':dropDownOpen}"
 									class="absolute left-0 bg-white shadow-md mt-2 text-white"
 								>
-									<ul class="space-y-1 md:w-36 lg:w-60">
-										<!-- dropdown items (teacher)  -->
-										<li>
+									<ul class="space-y-1 bg-white w-60 md:w-36 lg:w-60">
+										<!-- dropdown items (teacher) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
 											<a
-												class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
 												href="#"
 											>
 												<span>teacher</span>
 												<span><i class="fa-solid fa-angle-down"></i></span>
 											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add teacher</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add teacher</a
+														>
+													</li>
+												</ul>
+											</div>
 										</li>
+
 										<!-- dropdown items (classes) -->
 										<li class="relative" x-data="{subDropDownOpen:false}">
 											<a
 												@click="subDropDownOpen=!subDropDownOpen"
-												class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
 												href="#"
 											>
 												<span>classes</span>
@@ -94,14 +114,47 @@
 												<ul>
 													<li>
 														<a
-															class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add classes</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add classes</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<!-- dropdown items (classes) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
+												href="#"
+											>
+												<span>student</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
 															href="#"
 															>Add student</a
 														>
 													</li>
 													<li>
 														<a
-															class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
 															href="#"
 															>Add student</a
 														>
@@ -109,24 +162,12 @@
 												</ul>
 											</div>
 										</li>
-										<!-- dropdown items (students) -->
-										<li>
-											<a
-												class="text-base md:text-[13px] lg:text-base capitalize inline-flex justify-between md:px-2y-bet md:py-1 lg:px-4 lg:py-2 ween font-medium px-4 py-2 rounded-md lg:rounded-none hover:bg-green-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
-												href="#"
-											>
-												<span>students</span>
-												<span><i class="fa-solid fa-angle-down"></i></span>
-											</a>
-										</li>
 									</ul>
 								</div>
 							</li>
 							<!--NOTE:  menu list (nutritions) -->
 							<li class="">
-								<a
-									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
-									href="#"
+								<a class="menu__list" href="#"
 									>nutritions programs
 									<span class="relative top-0"
 										><i class="fa-solid fa-angle-down"></i
@@ -135,9 +176,7 @@
 							</li>
 							<!--NOTE:  menu list (reports) -->
 							<li class="">
-								<a
-									class="text-base md:text-[13px] lg:text-base capitalize inline-block font-medium px-4 md:px-2 py-2 md:py-1 lg:px-4 lg:py-2 rounded-md lg:rounded-none bg-gray-100 border-b-2 border-transparent text-gray-500 hover:border-b-2 w-full hover:border-green-600"
-									href="#"
+								<a class="menu__list" href="#"
 									>reports
 									<span class="relative top-0"
 										><i class="fa-solid fa-angle-down"></i
@@ -186,43 +225,114 @@
 		</header>
 		<!--NOTE: Page header section END  -->
 
+		<!-- NOTE: sponsors section START  -->
+		<section role="sponsors section" class="mx-auto bg-white">
+			<div class="container px-4 py-[50px]">
+				<!-- title  -->
+				<div class="flex justify-center lg:mb-[30px]">
+					<h1 class="text-4xl text-black capitalize font-bold">partners</h1>
+				</div>
+				<div class="flex flex-row space-x-10 justify-center mx-auto py-3">
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+				</div>
+				<div class="flex flex-row space-x-10 justify-center mx-auto py-3">
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+					<a href="#">
+						<img src="https://via.placeholder.com/150X75" alt=" sponsor logo" />
+					</a>
+				</div>
+			</div>
+		</section>
+		<!-- NOTE: sponsors section END  -->
 
-		<footer class="mx-auto bg-green-100 border-t-2 border-green-600 mt-5">
+		<!-- NOTE: Page footer section START  -->
+		<footer class="mx-auto bg-green-50 border-t-2 border-green-600 mt-5">
 			<div class="container px-4 py-4 md:py-0">
 				<div class="flex flex-row flex-wrap md:flex-nowrap space-x-3">
 					<!-- footer column  -->
 					<div class="basis-3/3 md:basis-1/3 lg:basis-2/3 py-3">
-						<h1 class=" capitalize text-black mb-2 text-base"><strong>footer</strong></h1>
-						<p class="text-[14px] text-gray-700">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus porro quia laborum praesentium consectetur sint cumque animi! Obcaecati, perferendis, inventore possimus facilis unde fugit cumque recusandae error debitis, dolorem illum?</p>
+						<h1 class="capitalize text-black mb-2 text-base">
+							<strong>footer</strong>
+						</h1>
+						<p class="text-[14px] text-gray-700">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus porro
+							quia laborum praesentium consectetur sint cumque animi! Obcaecati,
+							perferendis, inventore possimus facilis unde fugit cumque recusandae
+							error debitis, dolorem illum?
+						</p>
 					</div>
 					<!-- footer column  -->
 					<div class="basis-3/3 md:basis-1/3 lg:basis-1/3 py-3">
-						<h1 class=" capitalize text-black mb-2 text-base"><strong>go to</strong></h1>
+						<h1 class="capitalize text-black mb-2 text-base"><strong>go to</strong></h1>
 						<ul class="m-0 p-0 flex flex-col space-y-2">
-							<li><a class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize " href="$">dashboard</a></li>
-							<li><a class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize " href="$">nutritions programs</a></li>
-							<li><a class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize " href="$">faq</a></li>
+							<li>
+								<a
+									class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize"
+									href="$"
+									>dashboard</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize"
+									href="$"
+									>nutritions programs</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize"
+									href="$"
+									>faq</a
+								>
+							</li>
 						</ul>
 					</div>
 					<!-- footer column  -->
 					<div class="basis-3/3 md:basis-1/3 lg:basis-1/3 py-3">
-						<h1 class=" capitalize text-black mb-2 text-base"><strong>follow us</strong></h1>
-						<p class="text-[14px] text-gray-700">Lorem ipsum dolor sit, amet consectetur</p>
+						<h1 class="capitalize text-black mb-2 text-base">
+							<strong>follow us</strong>
+						</h1>
+						<p class="text-[14px] text-gray-700">
+							Lorem ipsum dolor sit, amet consectetur
+						</p>
 						<div class="flex space-x-5">
-							<span class=" text-xl "><i class=" fa-brands fa-facebook-f"></i></span>
-							<span class=" text-xl "><i class=" fa-brands fa-instagram"></i></span>
-							<span class=" text-xl "><i class=" fa-brands fa-twitter"></i></span>
+							<span class="text-xl"><i class="fa-brands fa-facebook-f"></i></span>
+							<span class="text-xl"><i class="fa-brands fa-instagram"></i></span>
+							<span class="text-xl"><i class="fa-brands fa-twitter"></i></span>
 						</div>
 					</div>
 				</div>
 				<div class="flex justify-center items-center py-5">
-					<p class="capitalize text-[14px] text-gray-700">designed & developed by 
-						<span class=" text-orange-500"> 
-						<a href="#">riseup labs</a>
-					</span></p>
+					<p class="capitalize text-[14px] text-gray-700">
+						designed & developed by
+						<span class="text-orange-500">
+							<strong><a href="#">riseup labs</a></strong>
+						</span>
+					</p>
 				</div>
 			</div>
 		</footer>
+		<!-- NOTE: Page footer section END  -->
 
 		<script type="module" src="./assets/js/main.js"></script>
 	</body>
