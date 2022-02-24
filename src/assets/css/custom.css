@@ -21,3 +21,12 @@ input:checked ~ .en-dot {
 		rgba(123, 178, 78, 0.8799894957983193) 100%
 	);
 }
+
+.bg-gradient{
+	background: rgb(7,95,10);
+background: linear-gradient(90deg, rgba(7,95,10,1) 0%, rgba(129,183,82,1) 100%);
+}
+.cloud__image{
+	top: 11%;
+    right: 17%;
+}
