@@ -37,6 +37,34 @@ background: linear-gradient(90deg, rgba(7,95,10,1) 0%, rgba(129,183,82,1) 100%);
 .play_store_btn a img{
 	width: 150px !important;
 }
+.owl-carousel .owl-stage-outer .owl-stage .owl-item>div{
+	height: 650px;
+	display: grid;
+	place-items: center;
+}
+@media screen and (max-width:640px){
+	.owl-carousel .owl-stage-outer .owl-stage .owl-item>div{
+		height: 400px;
+	}	
+}
+@media screen and (max-width:768px){
+	.owl-carousel .owl-stage-outer .owl-stage .owl-item>div{
+		height: 450px;
+	}	
+}
+@media screen and (max-width:1024px){
+	.owl-carousel .owl-stage-outer .owl-stage .owl-item>div{
+		height: 450px;
+	}	
+}
+@media screen and (max-width:1280px){
+	.owl-carousel .owl-stage-outer .owl-stage .owl-item>div{
+		height: 550px;
+	}	
+}
+.owl-carousel .owl-nav{
+	margin-top: 0 !important;
+}
 .owl-carousel .owl-nav button{
 	border: 0 !important;
     color: #fff !important;
