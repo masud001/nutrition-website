@@ -30,8 +30,8 @@
 						</a>
 					</div>
 					<!-- NOTE: mobile toggle button  -->
-					<button class="ml-auto md:hidden" @click="menuOpen = !menuOpen">
-						<i class="fa-solid fa-bars"></i>
+					<button  class="ml-auto md:hidden" @click="menuOpen = !menuOpen">
+						<i :class="{'text-green-600':menuOpen}" class="hover:text-green-600 fa-solid fa-bars"></i>
 					</button>
 
 					<!--NOTE: Header items  -->
@@ -45,7 +45,7 @@
 						>
 							<!--NOTE: menu list (home)  -->
 							<li class="">
-								<a class="menu__list" href="#">home </a>
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#">home </a>
 							</li>
 							<!--NOTE:  menu list (classroom) -->
 							<li class="relative" x-data="{dropDownOpen:false}">
@@ -170,7 +170,7 @@
 							</li>
 							<!--NOTE:  menu list (nutritions) -->
 							<li class="">
-								<a class="menu__list" href="#"
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#"
 									>nutritions programs
 									<span class="relative top-0"
 										><i class="fa-solid fa-angle-down"></i
@@ -179,7 +179,7 @@
 							</li>
 							<!--NOTE:  menu list (reports) -->
 							<li class="">
-								<a class="menu__list" href="#"
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#"
 									>reports
 									<span class="relative top-0"
 										><i class="fa-solid fa-angle-down"></i
