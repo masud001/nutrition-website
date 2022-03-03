@@ -6,13 +6,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Login || Nutrition Monitoring Website</title>
 		<!-- font-awesome icons css  -->
-		<link rel="stylesheet" href="./assets/fontawesome/css/all.css" />
+		<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css" />
 		<!-- tailwind css  -->
-		<link rel="stylesheet" href="./assets/css/output/tailwind.css" />
+		<link rel="stylesheet" href="../../assets/css/output/tailwind.css" />
 		<!-- custom css for common  -->
-		<link rel="stylesheet" href="./assets/css/custom.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
 		<!-- custom css for page  -->
-		<link rel="stylesheet" href="./assets/css/login.css" />
+		<link rel="stylesheet" href="../../assets/css/login.css" />
 	</head>
 	<body>
 		<!--TODO: Page header section START  -->
@@ -25,7 +25,7 @@
 					<!--NOTE: logo -->
 					<div class="mr-4 self-center">
 						<a href="/">
-							<img src="./assets/image/logo/logo.png" alt="logo" />
+							<img src="../../assets/image/logo/logo.png" alt="logo" />
 						</a>
 					</div>
 					<!-- NOTE: mobile toggle button  -->
@@ -263,7 +263,7 @@
             <div class="container flex flex-col space-y-10 justify-center mx-auto lg:w-1/2 xl:w-2/4 2xl:w-1/3">
                 <!-- login logo img  -->
                 <div class=" flex justify-center">
-                    <img src="./assets/image/login-page/login-page-logo.png" alt="login logo">
+                    <img src="../../assets/image/login-page/login-page-logo.png" alt="login logo">
                 </div>
                 <!-- heading  -->
                 <div class=" flex justify-center">
@@ -271,61 +271,50 @@
                 </div>
                 <!-- login forms  -->
                 <div class="flex justify-center  flex-col  space-y-5  px-4">
-                    <!-- select option  -->
+                    <!-- select institute option  -->
                     <div class=" xl:w-full">
                         <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institute">Secondary school/College/Madrasah/Club Category <span class=" text-red-700">*</span></label>
-                        <select id="institute" class="form-select 
-                            block
-                            w-full
-                            px-3
-                            py-1.5
-                            text-base
-                            font-normal
-                            text-gray-700
-                            bg-white bg-clip-padding bg-no-repeat
-                            border border-solid border-gray-300
-                            rounded
-                            transition
-                            ease-in-out
-                            m-0
-                            focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
-                            <option class=""  >Secondary school</option>
+                        <select id="institute" class="form-select  block w-full px-3 py-1.5 text-base font-normal text-gray-700bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300rounded transition ease-in-out m-0focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
+                            <option class=""  value="0">Secondary school</option>
                             <option class=""  value="1">College</option>
                             <option class=""  value="2">Madrasah</option>
                             <option class=""  value="3">Community Club</option>
                         </select>
                     </div>
-                    <!-- select option  -->
+                    <!-- input institute id option  -->
                     <div class=" xl:w-full flex flex-col">
-                        <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">Secondary school/College/Madrasah/Club Category <span class=" text-red-700">*</span></label>
-                        <input class="form-select 
-                        block
-                        w-full
-                        px-3
-                        py-1.5
-                        text-base
-                        font-normal
-                        text-gray-700
-                        bg-white bg-clip-padding bg-no-repeat
-                        border border-solid border-gray-300
-                        rounded
-                        transition
-                        ease-in-out
-                        m-0
-                        focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="Secondary school/College/Madrasah/Club Category">
-                        
+                        <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">Secondary school/College/Madrasah/Club Category <span class=" ">*</span></label>
+                        <input class="form-select block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="Secondary school/College/Madrasah/Club Category">
                     </div>
+					<!-- input password  -->
+					<div x-data="{ open: false, isWrong: false }" class=" relative xl:w-full flex flex-col">
+                        <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institutePassword">Password <span class=" text-red-700">*</span></label>
+                        <i  @click="open = ! open" class=" absolute top-8 right-2 cursor-pointer text-gray-700" :class="open ? 'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i>
+						<input :class="isWrong ? 'border-red-700':'border-gray-700'" class="form-select block w-full px-3 py-1.5  text-base font-normal text-gray-700  bg-white bg-clip-padding bg-no-repeat  border border-solid   rounded transition  ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" :type="open ? 'text' : 'password'" name="" id="institutePassword" placeholder="Password">
+						<!-- show/hide incorrect password  -->
+						<span :class="isWrong ? 'text-red-700 block':'hidden'"><small>Incorrect password, Please try again</small> </span>
+
+                    </div>
+
                     <!-- button  -->
-                    <div class=" text-center w-full">
+                    <div class=" text-center w-full flex space-x-5">
+                        <a href="./login-page.html" 
+                        type="button" 
+                        class=" w-full py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white bg-gradient hover_gradient "> 
+                        <span class="">back</span></a>
                         <a href="#" 
                         type="button" 
-                        class=" w-full py-2 px-6 capitalize text-[18px] rounded text-white bg-gradient hover_gradient "> 
-                        <span class="">continue</span>  </a>
+                        class=" w-full py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white bg-gradient hover_gradient "> 
+                        <span class="">submit</span></a>
                     </div>
                     <!-- progress-bar  -->
                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                        <div class="bg-gradient h-2.5 rounded-full" style="width: 50%"></div>
+                        <div class="bg-gradient h-2.5 rounded-full" style="width: 100%"></div>
                     </div>
+					<!-- submit success-fully  -->
+					<div class=" flex justify-center">
+						<h1 class=" text-sm lg:text-2xl xl:text-3xl font-bold lg:font-medium xl:font-semibold text-green-500">Successfully Submitted</h1>
+					</div>
                 </div>
 
             </div>
@@ -386,9 +375,9 @@
 							Lorem ipsum dolor sit, amet consectetur
 						</p>
 						<div class="flex space-x-5 ">
-							<a href="#" class="mt-4"> <img src="./assets/image/media-icons/logo-fb-simple.png" class="w-full h-full " alt="logo-fb-simple"></a>
-							<a href="#" class="mt-4"> <img src="./assets/image/media-icons/logo-instagram.png" class="w-full h-full " alt="logo-instagram"></a>
-							<a href="#" class="mt-4"> <img src="./assets/image/media-icons/logo-twitter.png" class="w-full h-full " alt="logo-twitter"></a>
+							<a href="#" class="mt-4"> <img src="../../assets/image/media-icons/logo-fb-simple.png" class="w-full h-full " alt="logo-fb-simple"></a>
+							<a href="#" class="mt-4"> <img src="../../assets/image/media-icons/logo-instagram.png" class="w-full h-full " alt="logo-instagram"></a>
+							<a href="#" class="mt-4"> <img src="../../assets/image/media-icons/logo-twitter.png" class="w-full h-full " alt="logo-twitter"></a>
 						</div>
 					</div>
 				</div>
@@ -403,9 +392,9 @@
 				</div>
 			</div>
 		</footer>
-		<!--NOTE: Page footer section END  -->
+		<!--TODO: Page footer section END  -->
 
-		<script src="./assets/js/jquery-3.6.0.min.js"></script>
-		<script type="module" src="./assets/js/main.js"></script>
+		<script src="../../assets/js/jquery-3.6.0.min.js"></script>
+		<script type="module" src="../../assets/js/main.js"></script>
 	</body>
 </html>
