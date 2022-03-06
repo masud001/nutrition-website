@@ -26,6 +26,11 @@ input:checked ~ .en-dot {
 	background: rgb(7,95,10);
 background: linear-gradient(90deg, rgba(7,95,10,1) 0%, rgba(129,183,82,1) 100%);
 }
+.hover_gradient:hover{
+    transition: ease-in;
+    background: rgb(7,95,10);
+    background: linear-gradient(180deg, rgba(7,95,10,1) 0%, rgba(129,183,82,1) 100%);
+}
 .cloud__image{
 	top: 11%;
     right: 17%;
