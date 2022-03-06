@@ -14,7 +14,20 @@
 		<!-- custom css for page  -->
 		<link rel="stylesheet" href="../../assets/css/login.css" />
 	</head>
-	<body>
+	<body x-data="{isPopupOpen:true}">
+
+		<div class=" p-4 fixed top-0 right-0 bottom-0 left-0 w-full h-full grid place-items-center bg-black bg-opacity-75 z-10">
+			<div class=" px-4 py-9 lg:w-1/2 xl:w-2/4 2xl:w-1/3 bg-white text-center rounded shadow-lg">
+				<h1 class=" text-black font-semibold text-2xl capitalize">Please Login your account, if you haven't login</h1>
+				<!-- button  -->
+				<div class="text-center mt-6">
+					<a href="./login-page.html" type="button" class=" rounded text-white py-2 px-6 capitalize text-[18px] bg-gradient">
+						<span>login</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
 		<!--TODO: Page header section START  -->
 		<header class="mx-auto bg-white shadow-lg">
 			<div class="container px-4 py-4 md:py-0">
@@ -274,8 +287,22 @@
                     <!-- select institute option  -->
                     <div class=" xl:w-full">
                         <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institute">Secondary school/College/Madrasah/Club Category <span class=" text-red-700">*</span></label>
-                        <select id="institute" class="form-select  block w-full px-3 py-1.5 text-base font-normal text-gray-700bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300rounded transition ease-in-out m-0focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
-                            <option class=""  value="0">Secondary school</option>
+                        <select id="institute" class="form-select 
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding bg-no-repeat
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
+                            <option class=""  >Secondary school</option>
                             <option class=""  value="1">College</option>
                             <option class=""  value="2">Madrasah</option>
                             <option class=""  value="3">Community Club</option>
@@ -283,45 +310,48 @@
                     </div>
                     <!-- input institute id option  -->
                     <div class=" xl:w-full flex flex-col">
-                        <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">Secondary school/College/Madrasah/Club Category <span class=" ">*</span></label>
-                        <input class="form-select block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="Secondary school/College/Madrasah/Club Category">
+                        <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">Secondary school/College/Madrasah/Club Category <span class=" text-red-700">*</span></label>
+                        <input class="form-select 
+                        block
+                        w-full
+                        px-3
+                        py-1.5
+                        text-base
+                        font-normal
+                        text-gray-700
+                        bg-white bg-clip-padding bg-no-repeat
+                        border border-solid border-gray-300
+                        rounded
+                        transition
+                        ease-in-out
+                        m-0
+                        focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="Secondary school/College/Madrasah/Club Category">
+                        
                     </div>
 					<!-- input password  -->
-					<div x-data="{ open: false, isWrong: false }" class=" relative xl:w-full flex flex-col">
+					<div x-data="{ open: false }" class=" relative xl:w-full flex flex-col">
                         <label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institutePassword">Password <span class=" text-red-700">*</span></label>
-                        <i  @click="open = ! open" class=" absolute top-8 right-2 cursor-pointer text-gray-700" :class="open ? 'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i>
-						<input :class="isWrong ? 'border-red-700':'border-gray-700'" class="form-select block w-full px-3 py-1.5  text-base font-normal text-gray-700  bg-white bg-clip-padding bg-no-repeat  border border-solid   rounded transition  ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" :type="open ? 'text' : 'password'" name="" id="institutePassword" placeholder="Password">
-						<!-- show/hide incorrect password  -->
-						<span :class="isWrong ? 'text-red-700 block':'hidden'"><small>Incorrect password, Please try again</small> </span>
-
+                        <input class="form-select js__Password_show_hide block w-full px-3 py-1.5  text-base font-normal text-gray-700  bg-white bg-clip-padding bg-no-repeat  border border-solid border-gray-300  rounded transition  ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" :type="open ? 'text' : 'password'" name="" id="institutePassword" placeholder="Password">
+						<i  @click="open = ! open" class=" absolute bottom-[10px] right-2 cursor-pointer text-gray-700" :class="open ? 'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i>
+						
                     </div>
 
                     <!-- button  -->
-                    <div class=" text-center w-full flex space-x-5">
-                        <a href="./login-page.html" 
+                    <div class=" text-center w-full">
+                        <a href="./login-page-03.html" 
                         type="button" 
                         class=" w-full py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white bg-gradient hover_gradient "> 
-                        <span class="">back</span></a>
-                        <a href="#" 
-                        type="button" 
-                        class=" w-full py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white bg-gradient hover_gradient "> 
-                        <span class="">submit</span></a>
+                        <span class="">continue</span>  </a>
                     </div>
                     <!-- progress-bar  -->
                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                        <div class="bg-gradient h-2.5 rounded-full" style="width: 100%"></div>
+                        <div class="bg-gradient h-2.5 rounded-full" style="width: 50%"></div>
                     </div>
-					<!-- submit success-fully  -->
-					<div class=" flex justify-center">
-						<h1 class=" text-sm lg:text-2xl xl:text-3xl font-bold lg:font-medium xl:font-semibold text-green-500">Successfully Submitted</h1>
-					</div>
                 </div>
 
             </div>
         </section>
         <!-- TODO: login page input area START -->
-
-
 
 		<!-- TODO: Page footer section START  -->
 		<footer class="mx-auto bg-green-50 border-t-2 border-green-600 mt-5">
@@ -392,7 +422,7 @@
 				</div>
 			</div>
 		</footer>
-		<!--TODO: Page footer section END  -->
+		<!--NOTE: Page footer section END  -->
 
 		<script src="../../assets/js/jquery-3.6.0.min.js"></script>
 		<script type="module" src="../../assets/js/main.js"></script>

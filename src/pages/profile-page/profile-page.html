@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Profile || Nutrition Monitoring Website</title>
+		<!-- font-awesome icons css  -->
+		<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css" />
+		<!-- tailwind css  -->
+		<link rel="stylesheet" href="../../assets/css/output/tailwind.css" />
+		<!-- custom css for common  -->
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<!-- custom css for page  -->
+		<link rel="stylesheet" href="../../assets/css/login.css" />
+	</head>
+	<body>
+		<!--TODO: Page header section START  -->
+		<header class="mx-auto bg-white shadow-lg">
+			<div class="container px-4 py-4 md:py-0">
+				<div x-data="{menuOpen:false}" class=" flex flex-wrap w-full items-center">
+					<!--NOTE: logo -->
+					<div class="mr-4 self-center">
+						<a href="/">
+							<img src="../../assets/image/logo/logo.png" alt="logo" />
+						</a>
+					</div>
+
+					<div class=" ml-auto flex items-center md:order-2">
+
+						<!-- TODO: profile image  -->
+						<div class="flex items-center">
+							<div class="flex items-center">
+								<img  class="mr-2 w-9 h-9 rounded-full border border-green-600 p-[2px]" src="https://via.placeholder.com/50x50" alt="profile avatar">
+								<h1 class=" text-black capitalize text-base">Masudur</h1>
+								<span class="ml-2"><i class="fa-solid fa-angle-down"></i> </span>
+							</div>
+						</div>
+						<div class="w-12 mx-2">
+							<!-- NOTE: language enable/disable button  -->
+							<div class="flex items-center justify-center">
+								<label for="toogleA" class="flex items-center cursor-pointer">
+									<!-- toggle -->
+									<div class="relative">
+										<!-- input -->
+										<input id="toogleA" type="checkbox" class="sr-only" />
+										<!-- line -->
+										<div
+											class="w-10 h-4 bg-green-600 rounded-full shadow-inner flex justify-start items-center"
+										>
+											<span class="capitalize text-white text-[10px] ml-1"
+												>bn</span
+											>
+										</div>
+										<!-- dot -->
+										<div
+											class="en-dot absolute flex items-center justify-center w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"
+										>
+											<span class="capitalize text-[10px]"> en</span>
+										</div>
+									</div>
+								</label>
+							</div>
+							<!-- end toggle button  -->
+						</div>
+						<div class="md:hidden" @click="menuOpen = !menuOpen">
+							<i :class="{'text-green-600':menuOpen}"  class="hover:text-green-600 fa-solid fa-bars"></i>
+						</div>
+					</div>
+
+					<!-- TODO: header menu  -->
+					<div class=" md:order-1 w-full md:w-auto flex-col md:flex-row md:inline-flex left-auto md:items-start lg:items-center" :class="{'hidden':!menuOpen}">
+						<!-- NOTE: header menu  -->
+						<ul
+							class="flex md:flex-row flex-col space-y-3 md:space-y-0 md:space-x-3 lg:space-x-5 md:mr-3 lg:mr-4 lg:py-0 py-3"
+						>
+							<!--NOTE: menu list (home)  -->
+							<li class="">
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#">home </a>
+							</li>
+							<!--NOTE:  menu list (classroom) -->
+							<li class="relative" x-data="{dropDownOpen:false}">
+								<a
+									@click="dropDownOpen = !dropDownOpen"
+									class="menu__list hover:border-b-2 hover:border-green-600"
+									:class="{'border-green-600':dropDownOpen}"
+									href="#"
+									>classroom
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
+								<!-- NOTE: dropdown menu  -->
+								<div
+									:class="{'hidden': !dropDownOpen,'flex flex-col z-50':dropDownOpen}"
+									class="absolute left-0 bg-white shadow-md mt-2 text-white"
+								>
+									<ul class="space-y-1 bg-white w-60 md:w-36 lg:w-60">
+										<!-- dropdown items (teacher) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
+												href="#"
+											>
+												<span>teacher</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add teacher</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add teacher</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+
+										<!-- dropdown items (classes) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
+												href="#"
+											>
+												<span>classes</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add classes</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add classes</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<!-- dropdown items (classes) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
+												href="#"
+											>
+												<span>student</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add student</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add student</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<!--NOTE:  menu list (nutritions) -->
+							<li class="">
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#"
+									>nutritions programs
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
+							</li>
+							<!--NOTE:  menu list (reports) -->
+							<li class="">
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#"
+									>reports
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					
+
+
+
+					
+
+				</div>
+			</div>
+		</header>
+		<!--NOTE: Page header section END  -->
+
+		<!-- TODO: simple breadCrumb (design 1 ) START  -->
+		<section class="mx-auto bg-[#FAFBFB] py-4 lg:py-10">
+			<div class="container">
+				<nav class="flex justify-center" aria-label="Breadcrumb">
+					<ol class="inline-flex items-center space-x-1 md:space-x-3">
+						<!-- items  -->
+						<li class="inline-flex items-center">
+						<a href="/#" class="inline-flex items-center text-sm font-medium text-green-500 hover:text-[#22262A] ">
+							Home
+						</a>
+						</li>
+						<!-- items  -->
+						<!-- <li>
+						<div class="flex items-center">
+							<i class="text-[#C1C8CE]"><span>&#47;</span></i>
+							<a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-[#22262A] md:ml-2 ">Projects</a>
+						</div>
+						</li> -->
+						<!-- items  -->
+						<li aria-current="page">
+						<div class="flex items-center">
+							<i class="text-[#C1C8CE]"><span>&#47;</span></i>
+							<span class="ml-1 text-sm font-medium text-[#22262A] md:ml-2 capitalize">profile</span>
+						</div>
+						</li>
+					</ol>
+					</nav>
+			</div>
+		</section>
+		<!-- TODO: simple breadCrumb END -->
+
+
+
+		<script src="../../assets/js/jquery-3.6.0.min.js"></script>
+		<script type="module" src="../../assets/js/main.js"></script>
+	</body>
+</html>
