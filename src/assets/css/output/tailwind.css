@@ -1249,6 +1249,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(254 235 219 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#FDE4E9\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 228 233 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-75 {
   --tw-bg-opacity: 0.75;
 }
@@ -1554,6 +1559,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-\[\#F87D2C\] {
   --tw-text-opacity: 1;
   color: rgb(248 125 44 / var(--tw-text-opacity));
+}
+
+.text-\[\#EF5E76\] {
+  --tw-text-opacity: 1;
+  color: rgb(239 94 118 / var(--tw-text-opacity));
 }
 
 .opacity-100 {
