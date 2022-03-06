@@ -765,6 +765,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: -10;
 }
 
+.z-40 {
+  z-index: 40;
+}
+
 .order-1 {
   order: 1;
 }
