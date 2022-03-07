@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Class upgrade || Nutrition Monitoring Website</title>
+		<!-- font-awesome icons css  -->
+		<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css" />
+		<!-- tailwind css  -->
+		<link rel="stylesheet" href="../../assets/css/output/tailwind.css" />
+		<!-- custom css for common  -->
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<!-- custom css for page  -->
+		<link rel="stylesheet" href="../../assets/css/login.css" />
+	</head>
+
+
+	<body    x-data="{isPopupOpen:false, isUpgraded:false}">
+
+		<!-- TODO: popup page section  -->
+		<div :class="isPopupOpen ? 'z-40 opacity-100':'hidden -z-10 opacity-0'" class=" p-4 fixed top-0 right-0 bottom-0 left-0 w-full h-full grid place-items-center bg-black bg-opacity-75">
+			<div class=" p-4 w-full lg:w-1/2 xl:w-2/4 2xl:w-1/3 bg-white rounded shadow-lg">
+				<div class="flex justify-between">
+					<h1 class=" text-black font-semibold text-xl capitalize">Upgrade confirmation</h1>
+					<span   @click="isPopupOpen = !isPopupOpen" class=" cursor-pointer hover:text-green-600"><i class="fa-solid fa-xmark"></i></span>
+				</div>
+				<!-- horizontal line  -->
+				<div class=" my-2 border border-gray-300 "></div>
+				<!-- update form start  -->
+				<div class="w-full pt-5 pb-5">
+					 <!-- login forms  -->
+					 <div class="flex justify-center  flex-col  space-y-5  px-4">
+						<!-- delete message  -->
+						<div class="text-center py-10">
+							
+							<h1 class="text-black font-bold capitalize text-base md:text-xl">Are you sure to Upgrade those selected students?</h1>
+						</div>
+
+						<!-- button  -->
+						<div class=" text-center w-full flex  space-x-5">
+							<button  @click="isPopupOpen = !isPopupOpen"
+							type="button" 
+							class=" w-1/2 py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-gray-600 border border-green-600 hover:text-white
+							hover:border-transparent  hover_gradient "> 
+							<span class=""> cancel </span>  </button>
+
+							<button @click="isUpgraded = !isUpgraded" 
+							type="button" 
+							class=" w-1/2 py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white bg-gradient hover_gradient "> 
+							<span class="">Upgrade</span> </button>
+						</div>
+
+						<!-- submit success-fully  -->
+						<div class=" flex flex-col text-center justify-center" :class="isUpgraded? 'opacity-100':'hidden opacity-0'">
+							<h1 class="text-black font-normal capitalize text-base ">Stutent of class 7 is successfully upgraded into class 8</h1>
+							<h1 class=" text-sm lg:text-2xl xl:text-3xl font-bold lg:font-medium xl:font-semibold text-green-500">Successfully Submitted</h1>
+						</div>
+					   
+					</div>
+				</div>
+				
+			</div>
+		</div>
+ 
+		<!--TODO: Page header section START  -->
+		<header class="mx-auto bg-white shadow-lg">
+			<div class="container px-4 py-4 md:py-0">
+				<div x-data="{menuOpen:false}" class=" flex flex-wrap w-full items-center">
+					<!--NOTE: logo -->
+					<div class="mr-4 self-center">
+						<a href="/">
+							<img src="../../assets/image/logo/logo.png" alt="logo" />
+						</a>
+					</div>
+
+					<div class=" ml-auto flex items-center md:order-2">
+
+						<!-- TODO: profile image  -->
+						<div class="flex items-center">
+							<div class="flex items-center">
+								<img  class="mr-2 w-9 h-9 rounded-full border border-green-600 p-[2px]" src="https://via.placeholder.com/50x50" alt="profile avatar">
+								<h1 class=" text-black capitalize text-base">Masudur</h1>
+								<span class="ml-2"><i class="fa-solid fa-angle-down"></i> </span>
+							</div>
+						</div>
+						<div class="w-12 mx-2">
+							<!-- NOTE: language enable/disable button  -->
+							<div class="flex items-center justify-center">
+								<label for="toogleA" class="flex items-center cursor-pointer">
+									<!-- toggle -->
+									<div class="relative">
+										<!-- input -->
+										<input id="toogleA" type="checkbox" class="sr-only" />
+										<!-- line -->
+										<div
+											class="w-10 h-4 bg-green-600 rounded-full shadow-inner flex justify-start items-center"
+										>
+											<span class="capitalize text-white text-[10px] ml-1"
+												>bn</span
+											>
+										</div>
+										<!-- dot -->
+										<div
+											class="en-dot absolute flex items-center justify-center w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"
+										>
+											<span class="capitalize text-[10px]"> en</span>
+										</div>
+									</div>
+								</label>
+							</div>
+							<!-- end toggle button  -->
+						</div>
+						<div class="md:hidden" @click="menuOpen = !menuOpen">
+							<i :class="{'text-green-600':menuOpen}"  class="hover:text-green-600 fa-solid fa-bars"></i>
+						</div>
+					</div>
+
+					<!-- TODO: header menu  -->
+					<div class=" md:order-1 w-full md:w-auto flex-col md:flex-row md:inline-flex left-auto md:items-start lg:items-center" :class="{'hidden':!menuOpen}">
+						<!-- NOTE: header menu  -->
+						<ul
+							class="flex md:flex-row flex-col space-y-3 md:space-y-0 md:space-x-3 lg:space-x-5 md:mr-3 lg:mr-4 lg:py-0 py-3"
+						>
+							<!--NOTE: menu list (home)  -->
+							<li class="">
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#">home </a>
+							</li>
+							<!--NOTE:  menu list (classroom) -->
+							<li class="relative" x-data="{dropDownOpen:false}">
+								<a
+									@click="dropDownOpen = !dropDownOpen"
+									class="menu__list hover:border-b-2 hover:border-green-600"
+									:class="{'border-green-600':dropDownOpen}"
+									href="#"
+									>classroom
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
+								<!-- NOTE: dropdown menu  -->
+								<div
+									:class="{'hidden': !dropDownOpen,'flex flex-col z-50':dropDownOpen}"
+									class="absolute left-0 bg-white shadow-md mt-2 text-white"
+								>
+									<ul class="space-y-1 bg-white w-60 md:w-36 lg:w-60">
+										<!-- dropdown items (teacher) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
+												href="#"
+											>
+												<span>teacher</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add teacher</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add teacher</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+
+										<!-- dropdown items (classes) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
+												href="#"
+											>
+												<span>classes</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add classes</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add classes</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<!-- dropdown items (classes) -->
+										<li class="relative" x-data="{subDropDownOpen:false}">
+											<a
+												@click="subDropDownOpen=!subDropDownOpen"
+												class="dropdown__list hover:border-b-2 hover:border-green-600 hover:bg-green-100"
+												href="#"
+											>
+												<span>student</span>
+												<span><i class="fa-solid fa-angle-down"></i></span>
+											</a>
+											<!-- NOTE: Sub dropdown menu  -->
+											<div
+												class=""
+												:class="{'hidden': !subDropDownOpen,'ease-in-out duration-300 flex flex-col ':subDropDownOpen}"
+											>
+												<ul>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add student</a
+														>
+													</li>
+													<li>
+														<a
+															class="sub_dropdown__list hover:bg-green-100 hover:border-green-600"
+															href="#"
+															>Add student</a
+														>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<!--NOTE:  menu list (nutritions) -->
+							<li class="">
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#"
+									>nutritions programs
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
+							</li>
+							<!--NOTE:  menu list (reports) -->
+							<li class="">
+								<a class="menu__list hover:border-b-2 hover:border-green-600" href="#"
+									>reports
+									<span class="relative top-0"
+										><i class="fa-solid fa-angle-down"></i
+									></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!--NOTE: Page header section END  -->
+
+		<!-- TODO: simple breadCrumb (design 1 ) START  -->
+		<section class="mx-auto bg-[#FAFBFB] py-4 lg:py-10">
+			<div class="container">
+				<nav class="flex justify-center" aria-label="Breadcrumb">
+					<ol class="inline-flex items-center space-x-1 md:space-x-3">
+						<!-- items  -->
+						<li class="inline-flex items-center">
+						<a href="/#" class="inline-flex items-center text-sm font-medium text-green-500 hover:text-[#22262A] capitalize">
+							Home
+						</a>
+						</li>
+						<!-- items  -->
+						<li>
+						<div class="flex items-center">
+							<i class="text-[#C1C8CE]"><span>&#47;</span></i>
+							<a href="#" class="ml-1 text-sm font-medium text-green-500 hover:text-[#22262A] md:ml-2 capitalize">classroom</a>
+						</div>
+						</li>
+						<!-- items  -->
+						<li aria-current="page">
+						<div class="flex items-center">
+							<i class="text-[#C1C8CE]"><span>&#47;</span></i>
+							<span class="ml-1 text-sm font-medium text-[#22262A] md:ml-2 capitalize">upgrade class</span>
+						</div>
+						</li>
+					</ol>
+					</nav>
+			</div>
+		</section>
+		<!-- TODO: simple breadCrumb END -->
+
+		 <!-- TODO: upgrade class page  area START -->
+		 <section class="mx-auto bg-white py-4 lg:py-10 space-y-4">
+             <!-- search/add student section  -->
+             <div class="container">
+				<div class="flex flex-wrap items-center w-full px-4 sm:w-4/5 mx-auto">
+				<!-- add class  -->
+				<div class="">
+					<h1 class="text-xl md:text-3xl capitalize font-semibold text-black">class 6</h1>
+				</div>
+				<!-- class search input  -->
+				<div class=" ml-auto relative order-2 lg:order-1 w-full lg:w-auto mt-4 lg:mt-0">
+					<input class="form-select capitalize block w-full pl-3 pr-6 py-1.5 text-base font-normal text-gray-700 bg-white0 bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded-full transition ease-in-out m-0
+					focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="search" name="class_search" id="class_search" placeholder="search">
+					<span class="text-gray-500 hover:text-green-600 cursor-pointer absolute top-2 right-2"> <i class="fa-solid fa-magnifying-glass"></i> </span>
+				</div>
+				<!-- button  -->
+				<div class="ml-auto lg:ml-4 order-1 lg:order-2">
+					
+					<button @click="isPopupOpen =!isPopupOpen" href="" type="button" class="py-1 sm:py-2 px-3 sm:px-6 capitalize text-[13px] md:text-[14px] rounded-full text-white bg-gradient hover_gradient">
+						 <span>Upgrade</span> </button>
+				</div>
+
+				
+			   </div>
+			</div>
+
+			<!-- student list if not empty  -->
+			<div class="container">
+				<div class=" flex flex-wrap flex-col  w-full px-4 sm:w-4/5 mx-auto">
+				   <div class="border border-gray-300 w-full rounded overflow-x-scroll md:overflow-x-hidden">
+					   <!-- total number  -->
+					   <div class="flex flex-wrap flex-col md:flex-row items-center md:items-end justify-center md:justify-between border-b border-gray-300 px-4 py-2">
+							<div class="mb-3 md:mb-0">
+							   <p class="text-base text-black capitalize">total student <span>08</span> </p>
+						   </div>
+						   <div class=" border border-green-600 flex p-1 rounded space-x-2">
+							   <div class=""><a href="#" type="button" class="  py-1 px-4 capitalize text-[14px] rounded text-white bg-gradient hover_gradient"> <span>all</span> </a></div>
+							   <div class=""><a href="#" type="button" class="  py-1 px-4 capitalize text-[14px] rounded text-black hover:text-white  hover_gradient"> <span>old</span> </a></div>
+							   <div class=""><a href="#" type="button" class="  py-1 px-4 capitalize text-[14px] rounded text-black hover:text-white  hover_gradient"> <span>new</span> </a></div>
+						   </div>
+						   <div class="flex items-end space-x-3">
+							   <!--select  from class -->
+								<div class="">
+									<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institute">From class </label>
+									<select id="institute" class="form-select block w-auto px-3 py-1.5 text-base capitalize font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition	ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
+										<option class=""  selected>class 7</option>
+										<option class=""  value="7">class 8</option>
+										<option class=""  value="7">class 9</option>
+									</select>
+								</div>
+							   <!--select  from class -->
+								<div class="">
+									<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institute">To class </label>
+									<select id="institute" class="form-select block w-auto px-3 py-1.5 text-base capitalize font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition	ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
+										<option class=""  selected>class 8</option>
+										<option class=""  value="7">class 8</option>
+										<option class=""  value="7">class 9</option>
+									</select>
+								</div>
+						   </div>
+
+						</div>
+					   <!-- table header  -->
+					   <table class="table-fixed w-full border-collapse border border-gray-300 min-w-[500px]">
+						   <thead class=" text-left bg-[#BFE3B5]">
+							 <tr>
+							   <th class=" border border-gray-300 capitalize p-2">roll no</th>
+							   <th class=" border border-gray-300 capitalize p-2">student name</th>
+							   <th class=" border border-gray-300 capitalize p-2">gender</th>
+							   <th class=" border border-gray-300 capitalize p-2">age</th>
+							   <th class=" border border-gray-300 capitalize p-2">
+								<label for="student">Select All</label>
+								<input type="checkbox" id="student" name="student" >
+							   </th>
+							 </tr>
+						   </thead>
+						   <tbody>
+							
+							   <!-- table single row -->
+							 <tr class="hover:bg-green-50">
+							   <td class=" border border-gray-300 p-2">01</td>
+							   <td class=" border border-gray-300 p-2">student Name</td>
+							   <td class=" border border-gray-300 p-2">Girl</td>
+							   <td class=" border border-gray-300 p-2">16</td>
+							   <td class=" border border-gray-300 p-2 ">
+								<input type="checkbox" id="student" name="student" class="" >
+							   </td>
+							 </tr>
+							   <!-- table single row -->
+							 <tr class="hover:bg-green-50">
+							   <td class=" border border-gray-300 p-2">01</td>
+							   <td class=" border border-gray-300 p-2">student Name</td>
+							   <td class=" border border-gray-300 p-2">Girl</td>
+							   <td class=" border border-gray-300 p-2">16</td>
+							   <td class=" border border-gray-300 p-2 ">
+								<input type="checkbox" id="student" name="student" class="" >
+							   </td>
+							 </tr>
+							   <!-- table single row -->
+							 <tr class="hover:bg-green-50">
+							   <td class=" border border-gray-300 p-2">01</td>
+							   <td class=" border border-gray-300 p-2">student Name</td>
+							   <td class=" border border-gray-300 p-2">Girl</td>
+							   <td class=" border border-gray-300 p-2">16</td>
+							   <td class=" border border-gray-300 p-2 ">
+								<input type="checkbox" id="student" name="student" class="" >
+							   </td>
+							 </tr>
+							   <!-- table single row -->
+							 <tr class="hover:bg-green-50">
+							   <td class=" border border-gray-300 p-2">01</td>
+							   <td class=" border border-gray-300 p-2">student Name</td>
+							   <td class=" border border-gray-300 p-2">Girl</td>
+							   <td class=" border border-gray-300 p-2">16</td>
+							   <td class=" border border-gray-300 p-2 ">
+								<input type="checkbox" id="student" name="student" class="" >
+							   </td>
+							 </tr>
+							   <!-- table single row -->
+							 <tr class="hover:bg-green-50">
+							   <td class=" border border-gray-300 p-2">01</td>
+							   <td class=" border border-gray-300 p-2">student Name</td>
+							   <td class=" border border-gray-300 p-2">Girl</td>
+							   <td class=" border border-gray-300 p-2">16</td>
+							   <td class=" border border-gray-300 p-2 ">
+								<input type="checkbox" id="student" name="student" class="" >
+							   </td>
+							 </tr>
+							 
+							
+						   </tbody>
+						 </table>
+				   </div>
+			   </div>
+			</div>
+            
+         </section>
+        <!-- TODO: teacher list page  area END -->
+
+		<!-- TODO: Page footer section START  -->
+		<footer class=" mx-auto bg-green-50 border-t-2 border-green-600 mt-5">
+			<div class="container px-4 py-4 md:py-0">
+				<div class="flex flex-row flex-wrap md:flex-nowrap space-x-3">
+					<!-- footer column  -->
+					<div class="basis-3/3 md:basis-1/3 lg:basis-2/3 py-3">
+						<h1 class="capitalize text-black mb-2 text-base">
+							<strong>footer</strong>
+						</h1>
+						<p class="text-[14px] text-gray-700">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus porro
+							quia laborum praesentium consectetur sint cumque animi! Obcaecati,
+							perferendis, inventore possimus facilis unde fugit cumque recusandae
+							error debitis, dolorem illum?
+						</p>
+					</div>
+					<!-- footer column  -->
+					<div class="basis-3/3 md:basis-1/3 lg:basis-1/3 py-3">
+						<h1 class="capitalize text-black mb-2 text-base"><strong>go to</strong></h1>
+						<ul class="m-0 p-0 flex flex-col space-y-2">
+							<li>
+								<a
+									class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize"
+									href="$"
+									>dashboard</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize"
+									href="$"
+									>nutritions programs</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-[14px] text-gray-600 hover:underline hover:text-black capitalize"
+									href="$"
+									>faq</a
+								>
+							</li>
+						</ul>
+					</div>
+					<!-- footer column  -->
+					<div class="basis-3/3 md:basis-1/3 lg:basis-1/3 py-3">
+						<h1 class="capitalize text-black mb-2 text-base">
+							<strong>follow us</strong>
+						</h1>
+						<p class="text-[14px] text-gray-700">
+							Lorem ipsum dolor sit, amet consectetur
+						</p>
+						<div class="flex space-x-5 ">
+							<a href="#" class="mt-4"> <img src="../../assets/image/media-icons/logo-fb-simple.png" class="w-full h-full " alt="logo-fb-simple"></a>
+							<a href="#" class="mt-4"> <img src="../../assets/image/media-icons/logo-instagram.png" class="w-full h-full " alt="logo-instagram"></a>
+							<a href="#" class="mt-4"> <img src="../../assets/image/media-icons/logo-twitter.png" class="w-full h-full " alt="logo-twitter"></a>
+						</div>
+					</div>
+				</div>
+				<!-- NOTE: developer address         -->
+				<div class="flex justify-center items-center py-5">
+					<p class="capitalize text-[14px] text-gray-700">
+						designed & developed by
+						<span class="text-orange-500">
+							<strong><a href="#">riseup labs</a></strong>
+						</span>
+					</p>
+				</div>
+			</div>
+		</footer>
+		<!--NOTE: Page footer section END  -->
+
+		<script src="../../assets/js/jquery-3.6.0.min.js"></script>
+		<script type="module" src="../../assets/js/main.js"></script>
+	</body>
+</html>
