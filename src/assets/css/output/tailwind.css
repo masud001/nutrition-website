@@ -769,6 +769,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   order: 2;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
 .float-left {
   float: left;
 }
@@ -1538,6 +1542,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 1.5rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1896,6 +1904,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     order: 1;
   }
 
+  .sm\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .sm\:w-36 {
     width: 9rem;
   }
@@ -1952,6 +1964,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:order-1 {
     order: 1;
+  }
+
+  .md\:col-span-1 {
+    grid-column: span 1 / span 1;
   }
 
   .md\:mr-3 {
@@ -2038,6 +2054,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     align-items: center;
   }
 
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+
   .md\:justify-between {
     justify-content: space-between;
   }
@@ -2086,6 +2106,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  .md\:pb-8 {
+    padding-bottom: 2rem;
   }
 
   .md\:text-4xl {
