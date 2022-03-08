@@ -26,6 +26,11 @@ input:checked ~ .en-dot {
 	background: rgb(7,95,10);
 background: linear-gradient(90deg, rgba(7,95,10,1) 0%, rgba(129,183,82,1) 100%);
 }
+.active.bg_gradient_active{
+	background: rgb(7,95,10);
+background: linear-gradient(90deg, rgba(7,95,10,1) 0%, rgba(129,183,82,1) 100%);
+color: #fff;
+}
 .hover_gradient:hover{
     transition: ease-in;
     background: rgb(7,95,10);
@@ -34,6 +39,17 @@ background: linear-gradient(90deg, rgba(7,95,10,1) 0%, rgba(129,183,82,1) 100%);
 .cloud__image{
 	top: 11%;
     right: 17%;
+}
+
+.ft_inc_kg{
+	top: 50%;
+    right: 2px;
+    padding: 5px 12px;
+    transform: translate(0, -50%);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+	font-size: 16px;
+	text-transform: capitalize;
 }
 
 
