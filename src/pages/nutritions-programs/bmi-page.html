@@ -339,7 +339,7 @@
 						</div>
 
 						<hr>
-						<!-- 2 round tab  -->
+						<!-- 2-round tab  -->
 						<div class=" pt-8" x-data="{openTab:'1'}">
 							<div class="pb-4">
 								<h1 class="mr-4 md:w-28 inline-block capitalize text-lg text-black  font-semibold">round</h1>
@@ -371,7 +371,7 @@
 										<!-- height  -->
 										<div class=" flex items-center pb-4">
 											<h1 class="mr-4 md:w-28 inline-block capitalize text-lg text-black  font-semibold">height</h1>
-											<div class=" xl:w-full flex flex-row space-x-5">
+											<div class=" xl:w-full flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-5">
 												<div class=" relative">
 													<input class="form-select capitalize block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
 													focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="00" >
@@ -381,6 +381,11 @@
 													<input class="form-select capitalize block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
 													focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="00"  >
 													<span class="ft_inc_kg absolute top-0  right-0 bg-gray-200 text-black">in</span>
+												</div>
+												<div class=" relative">
+													<input class="form-select capitalize block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-200 bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
+													focus:text-gray-700 focus:bg-gray-200 focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="00"  readonly>
+													<span class="ft_inc_kg absolute top-0   right-0 bg-gray-400 text-black">meter</span>
 												</div>
 											</div>
 										</div>
@@ -486,7 +491,7 @@
 													</div>
 												</div>
 												<!-- result 3 -->
-												<div class="place-self-center border border-green-600 rounded shadow-md w-full bg-white">
+												<div class="lg:col-span-2 border border-green-600 rounded shadow-md w-full bg-white">
 													<div class="">
 														<!-- tab  -->
 														<nav class=" bg-[#8FC15A]">
@@ -511,7 +516,7 @@
 									</div>
 								</div>
 								<div x-show="openTab === '2'" class="">
-									<div class="">
+									<div x-data="{isDataCalculate:false}" class="">
 										<!-- date  -->
 										<div class=" flex items-center pb-4">
 											<h1 class="mr-4 md:w-28 inline-block capitalize text-lg text-black  font-semibold">date</h1>
@@ -527,7 +532,7 @@
 										<!-- height  -->
 										<div class=" flex items-center pb-4">
 											<h1 class="mr-4 md:w-28 inline-block capitalize text-lg text-black  font-semibold">height</h1>
-											<div class=" xl:w-full flex flex-row space-x-5">
+											<div class=" xl:w-full flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-5">
 												<div class=" relative">
 													<input class="form-select capitalize block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
 													focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="00" >
@@ -537,6 +542,11 @@
 													<input class="form-select capitalize block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
 													focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="00"  >
 													<span class="ft_inc_kg absolute top-0  right-0 bg-gray-200 text-black">in</span>
+												</div>
+												<div class=" relative">
+													<input class="form-select capitalize block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-200 bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
+													focus:text-gray-700 focus:bg-gray-200 focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="00"  readonly>
+													<span class="ft_inc_kg absolute top-0   right-0 bg-gray-400 text-black">meter</span>
 												</div>
 											</div>
 										</div>
@@ -551,6 +561,119 @@
 												</div>
 											</div>
 										</div>
+										<!-- calculate button  -->
+										<div class=" flex justify-center mt-6">
+											<button @click="isDataCalculate=!isDataCalculate"
+												type="button" 
+												class="w-2/3 sm:w-1/2 py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white hover:text-white bg-gradient  hover_gradient "> 
+												<span class=""> calculate </span>
+											</button>
+										</div>
+										<!-- result start -->
+										<div :class="isDataCalculate ? '':'hidden'" class="">
+											<div class="flex justify-center pt-14 pb-14 ">
+												<div class=" border border-green-600 rounded shadow-md w-full lg:w-1/2 p-4 bg-[#F9F8D1]">
+													<div class="text-center pb-4">
+														<h1 class="text-2xl font-bold">30.00</h1>
+														<p class=" text-base text-green-500 font-bold capitalize">over weight</p>
+													</div>
+													<div class=" flex justify-between">
+														<div class="text-center">
+															<h1 class="text-base font-bold">30.00</h1>
+															<p class=" text-base text-green-500 font-semibold capitalize">over weight</p>
+														</div>
+														<div class="text-center">
+															<h1 class="text-base font-bold">30.00</h1>
+															<p class=" text-base text-green-500 font-semibold capitalize">over weight</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="grid  grid-cols-1 lg:grid-cols-2 pt-14 pb-14 gap-4">
+												<!-- result 1 -->
+												<div class=" border border-green-600 rounded shadow-md w-full bg-white">
+													<div x-data="{tab:'normal'}" class="">
+														<!-- tab  -->
+														<nav class=" bg-[#8FC15A]">
+															<div class="flex  flex-col md:flex-row">
+																<a class=" inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'normal' }" @click.prevent="tab = 'normal'" href="#">normal</a>
+																<a class=" inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'mildOverweight' }" @click.prevent="tab = 'mildOverweight'" href="#">mild Overweight</a>
+																<a class=" inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'overweight' }" @click.prevent="tab = 'overweight'" href="#">Overweight</a>
+																<a class=" inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'obesity' }" @click.prevent="tab = 'obesity'" href="#">Obesity</a>
+															</div>
+														</nav>
+														<!-- tab-content  -->
+														<div class="w-full h-full block p-4">
+															<div x-show="tab === 'normal'" class="">
+																<p class=" text-base text-black">normal</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p>
+															</div>
+															<div x-show="tab === 'mildOverweight'" class="">
+																<p class=" text-base text-black">mildOverweight</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p></div>
+															<div x-show="tab === 'overweight'" class="">
+																<p class=" text-base text-black">overweight</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p></div>
+															<div x-show="tab === 'obesity'" class="">
+																<p class=" text-base text-black">obesity</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p></div>
+														</div>
+													</div>
+												</div>
+												<!-- result 2 -->
+												<div class=" border border-green-600 rounded shadow-md w-full bg-white">
+													<div x-data="{tab:'normal'}" class="">
+														<!-- tab  -->
+														<nav class=" bg-[#8FC15A]">
+															<div class="flex flex-col md:flex-row">
+																<a class="inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'normal' }" @click.prevent="tab = 'normal'" href="#">normal</a>
+																<a class="inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'mildMalnourished' }" @click.prevent="tab = 'mildMalnourished'" href="#"> Mild Malnourished</a>
+																<a class="inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'Moderately' }" @click.prevent="tab = 'Moderately'" href="#">Moderately 
+																	Malnourished</a>
+																<a class="inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white " :class="{ ' border-blue-900 active': tab === 'Sever' }" @click.prevent="tab = 'Sever'" href="#">Sever</a>
+															</div>
+														</nav>
+														<!-- tab-content  -->
+														<div class="w-full h-full block p-4">
+															<div x-show="tab === 'normal'" class="">
+																<p class=" text-base text-black">obesity</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p>
+															</div>
+															<div x-show="tab === 'mildMalnourished'" class="">
+																<p class=" text-base text-black">mildMalnourished</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p></div>
+															<div x-show="tab === 'Moderately'" class="">
+																<p class=" text-base text-black">Moderately</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p></div>
+															<div x-show="tab === 'Sever'" class="">
+																<p class=" text-base text-black">Sever</p>
+																<p class=" text-base text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, temporibus!</p></div>
+														</div>
+													</div>
+												</div>
+												<!-- result 3 -->
+												<div class="lg:col-span-2 border border-green-600 rounded shadow-md w-full bg-white">
+													<div class="">
+														<!-- tab  -->
+														<nav class=" bg-[#8FC15A]">
+															<div class="flex items-center">
+																<button class="inline-block relative w-full p-2 border-b-2 text-sm font-medium capitalize text-center text-white ">masud</button>
+															</div>
+														</nav>
+														<!-- tab-content  -->
+														<div class="w-full h-full block p-4">
+															<div class=" text-center">
+																<p class=" text-base text-black">normal</p>
+																<p class=" text-base text-black">Lorem ipsum </p>
+																<p class=" text-base text-black">Lorem ipsum </p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- result end -->
+
 									</div>
 								</div>
 							</div>
