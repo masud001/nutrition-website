@@ -248,7 +248,7 @@
 						<li aria-current="page">
 						<div class="flex items-center">
 							<i class="text-[#C1C8CE]"><span>&#47;</span></i>
-							<span class="ml-1 text-[12px] font-medium text-[#22262A] md:ml-2 capitalize">monthly report</span>
+							<span class="ml-1 text-[12px] font-medium text-[#22262A] md:ml-2 capitalize">referral </span>
 						</div>
 						</li>
 					</ol>
@@ -257,14 +257,14 @@
 		</section>
 		<!-- TODO: simple breadCrumb END -->
 
-		<!-- TODO: referral education page  area START -->
+		<!-- TODO: annual report page  area START -->
 		<section class="mx-auto bg-white py-4 lg:py-10 space-y-4">
-            <!-- referral education section  -->
+            <!-- annual education section  -->
             <div class="container">
 				<div class="flex flex-wrap items-center w-full px-4 sm:w-4/5 mx-auto">
 					<!-- referral education  -->
 					<div class="">
-						<h1 class="text-xl md:text-3xl capitalize font-semibold text-black">monthly report</h1>
+						<h1 class="text-xl md:text-3xl capitalize font-semibold text-black">referral report</h1>
 					</div>
 					<!-- referral education input  -->
 					<div class=" ml-auto relative order-2 lg:order-1 w-full lg:w-auto mt-4 lg:mt-0">
@@ -274,7 +274,7 @@
 					</div>
 			   </div>
 			</div>
-			<!-- referral form input -->
+			<!-- report form input -->
 			<div class="container">
 				<div class="flex flex-wrap flex-col  w-full px-4 sm:w-4/5 mx-auto">
 				   <div class="border border-gray-300 w-full rounded p-10">
@@ -314,35 +314,21 @@
 									<option class=""  value="programs name">programs name</option>
 								</select>
 							</div>
-                            <!-- year   -->
+
+							<!--from date  -->
 							<div class=" xl:w-full flex flex-col">
-								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institute"> year </label>
-								<select id="institute" class="form-select block w-auto px-3 py-1.5 text-base capitalize font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition	ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-									<option class=""  value="2022">2022</option>
-								</select>
+								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">from date</label>
+								<input class="form-select capitalize block w-full min-w-[75px] px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
+								focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="date" name="" id="instituteId" placeholder="from date"  >
 							</div>
-                            <!-- month   -->
+							<!--to date  -->
 							<div class=" xl:w-full flex flex-col">
-								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institute"> month </label>
-								<select id="institute" class="form-select block w-auto px-3 py-1.5 text-base capitalize font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition	ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example">
-									<option class=""  value="january">january</option>
-									<option class=""  value="january">january</option>
-									<option class=""  value="january">january</option>
-									<option class=""  value="january">january</option>
-									<option class=""  value="january">january</option>
-									<option class=""  value="january">january</option>
-									<option class=""  value="january">january</option>
-								</select>
+								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">to date</label>
+								<input class="form-select capitalize block w-full min-w-[75px] px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
+								focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="date" name="" id="instituteId" placeholder="to date"  >
 							</div>
+                            
+                         
 							<!-- submit button  -->
 							<div x-data="{isViewReport:false}" class="col-span-2  text-center mt-6">
 
