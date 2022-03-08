@@ -920,6 +920,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 3rem;
 }
 
+.h-\[50px\] {
+  height: 50px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -970,6 +974,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-2\/3 {
   width: 66.666667%;
+}
+
+.w-\[50px\] {
+  width: 50px;
 }
 
 .min-w-\[500px\] {
@@ -1320,6 +1328,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-75 {
   --tw-bg-opacity: 0.75;
 }
@@ -1565,6 +1578,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .leading-8 {
   line-height: 2rem;
+}
+
+.leading-\[50px\] {
+  line-height: 50px;
 }
 
 .text-green-600 {
