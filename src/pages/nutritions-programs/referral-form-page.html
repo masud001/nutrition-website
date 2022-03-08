@@ -282,7 +282,7 @@
 				<div class="flex flex-wrap flex-col  w-full px-4 sm:w-4/5 mx-auto">
 				   <div class="border border-gray-300 w-full rounded p-10">
 					   <!-- total number  -->
-					   <div class="grid grid-cols-2 gap-4 pb-8">
+					   <div class="grid grid-cols-2 gap-4 pb-8 items-center">
 							<!-- class  -->
 							<div class=" xl:w-full flex flex-col">
 								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="institute"> class </label>
@@ -342,9 +342,9 @@
 								focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="date" name="" id="instituteId" placeholder="Date">
 							</div>
 							<!-- Date of Birth  -->
-							<div class=" xl:w-full flex flex-col">
+							<div class="col-span-2 lg:col-span-1 xl:w-full flex flex-col">
 								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">Date of Birth <span class=" text-red-700">*</span></label>
-								<div class="grid grid-cols-3 gap-4">
+								<div class="grid md:grid-cols-3 gap-4">
 									<!-- day  -->
 									<select id="institute" class="form-select block w-full px-3 py-1.5 text-basev font-normal	text-gray-700bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" aria-label="Default select example" placeholder="Select class">
 									 <option class=""  value="6">Day</option>
@@ -389,7 +389,7 @@
 								</div>
 							</div>
 							<!-- age  -->
-							<div class=" xl:w-full flex flex-col">
+							<div class="col-span-2 lg:col-span-1 xl:w-full flex flex-col">
 								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">age</label>
 								<input class="form-select capitalize block w-full min-w-[75px] px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-200 bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
 								focus:text-gray-700 focus:bg-gray-200 focus:border-green-600 focus:outline-none" type="text" name="" id="instituteId" placeholder="15" readonly>
@@ -398,9 +398,37 @@
 							<div class="col-span-2 xl:w-full flex flex-col">
 								<label class="text-[#212529] capitalize text-[12px] lg:text-[14px]" for="instituteId">Referral reason</label>
 								<textarea rows="4" cols="50"  class="form-select capitalize block w-full min-w-[75px] px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-green-600 rounded transition ease-in-out m-0
-								focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" name="" id="instituteId" placeholder="Type referral reason" >
+								focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none placeholder-gray-600" name="" id="instituteId" placeholder="Type referral reason" >
 							
 							</textarea>
+							</div>
+							<!-- submit button  -->
+							<div x-data="{isSubmitSuccess:false}" class="col-span-2  text-center mt-6">
+
+								<button @click="isSubmitSuccess=!isSubmitSuccess"
+									type="button" 
+									class="w-full md:w-1/2  py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white hover:text-white bg-gradient  hover_gradient "> 
+									<span class=""> submit </span>
+								</button>
+
+								<!-- submit success-fully  -->
+								<div :class="isSubmitSuccess ? '':'hidden'" class="mt-4">
+									<div class=" flex justify-center" :class="isDeleted? 'opacity-100':'hidden opacity-0'">
+										<h1 class=" text-sm lg:text-2xl xl:text-3xl font-bold lg:font-medium xl:font-semibold text-green-500">Successfully Submitted</h1>
+									</div>
+
+									<button 
+										type="button" 
+										class=" mt-4 flex justify-center text-center mx-auto  w-full md:w-2/3 lg:w-1/2  py-2 px-6 capitalize text-[14px] lg:text-[18px] rounded text-white hover:text-white bg-gradient  hover_gradient "> 
+									
+										<div class="flex items-center md:space-x-12">
+											<span class="inline-block w-[33px] h-auto"> <img src="../../assets/image/nutritions-page/pdf-light.png" alt=""> </span>
+										<span class="inline-block"> Referral PDF Download </span>
+										</div>
+									</button>
+
+
+								</div>
 							</div>
 						</div>
 
